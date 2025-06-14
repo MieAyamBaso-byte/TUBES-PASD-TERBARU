@@ -1,0 +1,376 @@
+{% extends "base.html" %}
+
+{% block title %}Tentang BuzzleUp{% endblock %}
+
+{% block head %}
+<style>
+    /* About Page Styles */
+    .about-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+    }
+
+    /* Hero Section */
+    .about-hero {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 3rem 0;
+        background: linear-gradient(135deg, rgba(67, 97, 238, 0.05), rgba(242, 100, 164, 0.05));
+        border-radius: 15px;
+    }
+
+    .about-hero h1 {
+        font-size: 2.5rem;
+        color: #3a0ca3;
+        margin-bottom: 1rem;
+        font-weight: 700;
+    }
+
+    .about-hero p {
+        font-size: 1.1rem;
+        color: #6c757d;
+        max-width: 700px;
+        margin: 0 auto 2rem;
+        line-height: 1.7;
+    }
+
+    /* Mission Section */
+    .mission-section {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        margin-bottom: 4rem;
+    }
+
+    .mission-content {
+        flex: 1;
+    }
+
+    .mission-image {
+        flex: 1;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    .mission-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        position: relative;
+        display: inline-block;
+    }
+
+    .section-title:after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 50px;
+        height: 4px;
+        background: linear-gradient(90deg, #4361ee, #f72585);
+        border-radius: 2px;
+    }
+
+    .mission-text {
+        color: #495057;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Features Section */
+    .features-section {
+        margin-bottom: 4rem;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .feature-card {
+        background: white;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    .feature-icon {
+        font-size: 2.5rem;
+        color: #4361ee;
+        margin-bottom: 1.5rem;
+    }
+
+    .feature-title {
+        font-size: 1.3rem;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .feature-desc {
+        color: #6c757d;
+        line-height: 1.7;
+    }
+
+    /* Team Section */
+    .team-section {
+        margin-bottom: 4rem;
+    }
+
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .team-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .team-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .team-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+
+    .team-info {
+        padding: 1.5rem;
+    }
+
+    .team-name {
+        font-size: 1.2rem;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+
+    .team-role {
+        color: #f72585;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: linear-gradient(135deg, #06b7d6, #dac7f6);
+        border-radius: 15px;
+        color: white;
+        margin-bottom: 3rem;
+    }
+
+    .cta-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+    }
+
+    .cta-text {
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin: 0 auto 2rem;
+        line-height: 1.7;
+        opacity: 0.9;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: white;
+        color: #4361ee;
+        padding: 0.8rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .about-container {
+            padding: 1.5rem 1rem;
+        }
+        
+        .about-hero {
+            padding: 2rem 1rem;
+        }
+        
+        .about-hero h1 {
+            font-size: 2rem;
+        }
+        
+        .mission-section {
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+        }
+        
+        .team-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .cta-section {
+            padding: 3rem 1rem;
+        }
+        
+        .cta-title {
+            font-size: 1.8rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="about-container">
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <h1>Tentang BuzzleUp</h1>
+        <p>Solusi cerdas untuk membantu mahasiswa mengelola keuangan dengan lebih efektif dan mencapai kebebasan finansial sejak dini.</p>
+        <img src="{{ url_for('static', filename='img/about-hero.png') }}" alt="BuzzleUp Team" style="max-width: 600px; width: 100%; border-radius: 10px;">
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="mission-content">
+            <h2 class="section-title">Misi Kami</h2>
+            <p class="mission-text">
+                BuzzleUp lahir dari keprihatinan terhadap tantangan finansial yang dihadapi mahasiswa. Kami percaya bahwa pengelolaan keuangan yang baik sejak dini dapat membentuk kebiasaan finansial yang sehat untuk masa depan.
+            </p>
+            <p class="mission-text">
+                Platform kami dirancang khusus untuk memenuhi kebutuhan mahasiswa dengan antarmuka yang sederhana, fitur yang relevan, dan wawasan yang dapat ditindaklanjuti.
+            </p>
+            <div class="mission-stats">
+                <div style="display: flex; gap: 2rem;">
+                    <div>
+                        <h3 style="font-size: 2rem; color: #4361ee; margin-bottom: 0.5rem;">100% Gratis</h3>
+                        <p style="color: #6c757d;">Tanpa biaya tersembunyi</p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 2rem; color: #4361ee; margin-bottom: 0.5rem;">3+ Fitur</h3>
+                        <p style="color: #6c757d;">Unggulan</p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 2rem; color: #4361ee; margin-bottom: 0.5rem;">1x Klik</h3>
+                        <p style="color: #6c757d;">Mulai Analisis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mission-image">
+            <img src="{{ url_for('static', filename='img/mission-image.jpg') }}" alt="BuzzleUp Mission">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <h2 class="section-title">Yang Membuat BuzzleUp Berbeda</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="feature-title">Dibuat untuk Mahasiswa</h3>
+                <p class="feature-desc">
+                    Fitur dan antarmuka dirancang khusus untuk kebutuhan dan pola pengeluaran mahasiswa Indonesia.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3 class="feature-title">Analisis Cerdas</h3>
+                <p class="feature-desc">
+                    Sistem kami memberikan rekomendasi personal berdasarkan pola pengeluaran Anda.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3 class="feature-title">Privasi Terjamin</h3>
+                <p class="feature-desc">
+                    Data keuangan Anda aman dengan enkripsi tingkat tinggi dan tidak dibagikan ke pihak ketiga.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <h2 class="section-title">Tim Kami</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="{{ url_for('static', filename='img/team1.jpg') }}" alt="Naufal Hawari Kahfi" class="team-image">
+                <div class="team-info">
+                    <h3 class="team-name">Naufal Hawari Kahfi</h3>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="{{ url_for('static', filename='img/team2.jpg') }}" alt="Mohammed Haikal Ferdiansyah" class="team-image">
+                <div class="team-info">
+                    <h3 class="team-name">Mohammed Haikal Ferdiansyah</h3>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="{{ url_for('static', filename='img/team3.jpg') }}" alt="Rini Anisa" class="team-image">
+                <div class="team-info">
+                    <h3 class="team-name">Rini Anisa</h3>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="{{ url_for('static', filename='img/team4.jpg') }}" alt="Petrosina Angwarmase" class="team-image">
+                <div class="team-info">
+                    <h3 class="team-name">Petrosina Angwarmase</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2 class="cta-title">Siap Mengubah Kebiasaan Finansial Anda?</h2>
+        <p class="cta-text">
+            Mulai perjalanan finansial cerdasmu bersama BuzzleUp, platform pilihan banyak mahasiswa untuk tumbuh bersama.
+        </p>
+        <a href="{{ url_for('expenses.expenses') }}" class="cta-button">
+            Mulai Sekarang <i class="fas fa-arrow-right"></i>
+        </a>
+    </section>
+</div>
+{% endblock %}

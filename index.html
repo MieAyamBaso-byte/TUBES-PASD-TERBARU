@@ -1,0 +1,308 @@
+{% extends "base.html" %}
+
+{% block title %}Home - BuzzleUp{% endblock %}
+
+{% block head %}
+<style>
+    /* Features Section */
+    .features {
+        padding: 5rem 0;
+        background-color: white;
+    }
+    
+    .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        color: #2c3e50;
+    }
+    
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    
+    .feature-card {
+        background: white;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+    
+    .feature-icon {
+        font-size: 3rem;
+        color: #3498db;
+        margin-bottom: 1.5rem;
+    }
+    
+    .feature-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #2c3e50;
+    }
+
+    /* How It Works Section */
+    .how-it-works {
+        padding: 5rem 0;
+        background-color: #f8f9fa;
+    }
+
+    .how-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .section-subtitle {
+        text-align: center;
+        color: #6c757d;
+        max-width: 800px;
+        margin: 0 auto 3rem;
+        line-height: 1.7;
+        font-size: 1.1rem;
+    }
+
+    .steps {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .step {
+        display: flex;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+
+    .step-number {
+        background: #4361ee;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        flex-shrink: 0;
+    }
+
+    .step-content {
+        flex: 1;
+    }
+
+    .step-title {
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+    }
+
+    .step-description {
+        color: #6c757d;
+        line-height: 1.7;
+    }
+
+    .demo-button {
+        text-align: center;
+        margin-top: 2rem;
+    }
+    
+    /* Testimonials */
+    .testimonials {
+        padding: 5rem 0;
+        background-color: #f8f9fa;
+    }
+    
+    .testimonial-card {
+        background: white;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        margin: 0 1rem;
+    }
+    
+      /* CTA Section */
+    .cta {
+        padding: 5rem 1rem;
+        background: linear-gradient(135deg, #ffd500, #cc6d00);
+        color: white;
+        text-align: center;
+    }
+    
+    .cta-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .cta-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        max-width: 800px;
+    }
+    
+    .cta-title {
+        font-size: 2.2rem;
+        font-weight: 600;
+        line-height: 1.3;
+        margin: 0;
+    }
+    
+    .cta-description {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 0 0.5rem 0;
+        line-height: 1.6;
+    }
+    
+    .cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 2.5rem;
+        background: white;
+        color: #4361ee;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+    
+    .cta-button i {
+        transition: transform 0.3s ease;
+    }
+    
+    .cta-button:hover i {
+        transform: translateX(3px);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .cta {
+            padding: 3.5rem 1rem;
+        }
+        
+        .cta-title {
+            font-size: 1.8rem;
+        }
+        
+        .cta-description {
+            font-size: 1rem;
+            padding: 0 1rem;
+        }
+        
+        .cta-button {
+            padding: 0.9rem 2rem;
+            font-size: 1rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Features Section -->
+<section class="features">
+    <h2 class="section-title">Fitur Unggulan BuzzleUp</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-money-bill-wave"></i>
+            </div>
+            <h3 class="feature-title">Tracking Pengeluaran</h3>
+            <p>Catat setiap pengeluaran dengan mudah baik secara manual maupun melalui upload file CSV.</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-chart-pie"></i>
+            </div>
+            <h3 class="feature-title">Analisis Visual</h3>
+            <p>Visualisasi data pengeluaran Anda dalam bentuk grafik yang mudah dipahami.</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-magic"></i>
+            </div>
+            <h3 class="feature-title">Tips Keuangan</h3>
+            <p>Saran pengelolaan keuangan berdasarkan kebiasaan belanja Anda.</p>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="how-it-works">
+    <div class="how-container">
+        <h2 class="section-title">Cara Kerja BuzzleUp</h2>
+        <p class="section-subtitle">
+            BuzzleUp membantu kamu mengelola keuangan dengan 3 langkah mudah. Mulai dari pencatatan pengeluaran harian hingga analisis cerdas yang membantu mengambil keputusan finansial yang lebih baik.
+        </p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3 class="step-title">Catat Pengeluaran</h3>
+                    <p class="step-description">Masukkan semua transaksi harianmu baik secara manual atau dengan upload file CSV. Kamu bisa menambahkan kategori khusus untuk memudahkan pelacakan.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3 class="step-title">Analisis Otomatis</h3>
+                    <p class="step-description">Sistem kami akan menganalisis pola pengeluaranmu dan memberikan insight tentang kebiasaan belanja, pengeluaran berlebihan, serta potensi penghematan.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3 class="step-title">Dapatkan Rekomendasi</h3>
+                    <p class="step-description">BuzzleUp memberikan saran personal untuk mengoptimalkan pengeluaran, meningkatkan tabungan, dan mencapai target finansialmu sebagai mahasiswa.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="demo-button">
+            <a href="{{ url_for('expenses.expenses') }}" class="btn">
+                <i class="fas fa-play-circle"></i> Lihat Demo
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="cta-container">
+        <div class="cta-content">
+            <h2 class="cta-title">Siap Mengatur Keuangan dengan Lebih Baik?</h2>
+            <p class="cta-description">Rasakan cara baru mengelola uangmu. Efisien, cerdas, dan sesuai gaya hidup mahasiswa.</p>
+            <a href="{{ url_for('expenses.expenses') }}" class="cta-button">
+                Mulai Gratis Sekarang <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
