@@ -1,4 +1,4 @@
-import pandas as pd
+import pandas as pd #ambil pandas
 from datetime import datetime
 from typing import Dict, List
 from flask import current_app  # Menambahkan impor current_app
