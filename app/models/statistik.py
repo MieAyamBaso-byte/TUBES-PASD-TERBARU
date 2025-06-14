@@ -47,3 +47,22 @@ class StatistikPengeluaran:
         if self.df.empty:
             return {}
         return self.df.groupby('bulan')['jumlah'].sum().to_dict()
+    
+    def tren_bulanan(self) -> Dict:
+        """Monthly spending trend"""
+        if self.df.empty:
+            return {}
+        return self.df.groupby(['tahun', 'bulan'])['jumlah'].sum().to_dict()
+
+    def tren_harian(self) -> List[Dict]:
+        """Daily spending trend"""
+        if self.df.empty:
+            return []
+        daily = self.df.groupby('tanggal')['jumlah'].sum().reset_index()
+        return daily.to_dict('records')
+
+    def tren_per_kategori(self) -> Dict:
+        """Spending trend by category"""
+        if self.df.empty:
+            return {}
+        return self.df.groupby(['kategori', self.df['tanggal'].dt.to_period('M')])['jumlah'].sum().unstack().to_dict()
