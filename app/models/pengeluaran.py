@@ -1,4 +1,4 @@
-import csv #import csv nya 
+import csv
 import os
 from datetime import datetime
 from typing import List, Dict
