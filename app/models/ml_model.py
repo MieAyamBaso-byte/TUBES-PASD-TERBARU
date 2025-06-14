@@ -1,5 +1,5 @@
-import os
-import pickle
+import os #ambil os
+import pickle #ambil pickle
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
