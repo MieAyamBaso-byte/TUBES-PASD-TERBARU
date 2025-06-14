@@ -1,0 +1,5 @@
+pip install flask==2.3.3
+pip install pandas==2.0.3
+pip install scikit-learn==1.3.0
+pip install joblib==1.3.2
+pip install werkzeug==2.3.7

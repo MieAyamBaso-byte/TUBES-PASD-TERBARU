@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Pengeluaran makanan 87",
+        "kategori": "makanan",
+        "jumlah": 18000,
+        "tanggal": "2025-03-19"
+    },
+    {
+        "name": "Pengeluaran makanan 88",
+        "kategori": "makanan",
+        "jumlah": 20000,
+        "tanggal": "2025-03-18"
+    },
+    {
+        "name": "Pengeluaran transportasi 88",
+        "kategori": "transportasi",
+        "jumlah": 13000,
+        "tanggal": "2025-03-18"
+    }
+]
